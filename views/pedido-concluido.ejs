@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TopSales6</title>
+    <link rel="shortcut icon" href="/images/fivicon.ico">
+    <!--Fonte / Icons-->    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>   
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">     
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">    
+    <!--CSS-->
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/barra-progresso-pedido.css">
+    <link rel="stylesheet" href="/stylesheets/checkout.css">
+    <link rel="stylesheet" href="/stylesheets/pedido_concluido.css">
+</head>
+<body>    
+    
+    <%- include('./partials/header') %>
+    
+    <div class="container">
+        <div class="div-main-config-padrao">
+            <!--Comece aqui!-->
+            <%- include('./partials/barra-progresso-pedido') %>
+
+            <main class="main-checkout">
+
+                <% if(infoPedido && infoPedido != null){ %> 
+
+                    <div class="div-pedido-concluido">
+                        <div class = "div-info-pedido-concluido">
+                            <p class="msg-pedido-concluido">                            
+                                Seu pedido foi realizado com sucesso!
+                            </p>
+                                                    
+                            <p class="num-pedido">Pedido #<%= infoPedido.id %> </p>
+                            <p class="prazo-pedido">*Os produtos serão enviados em até 7 dias úteis após a confirmação do pagamento</p>
+
+                            <a href = "/usuario/perfil" class="btn-ver-pedido" > VER PEDIDO </a>
+                            
+                            <a href = "/" class="btn-continuar-comprando">
+                                <span class="material-icons-outlined">shopping_cart</span>
+                                    Continuar Comprando
+                                </a>
+                        </div>
+        
+                        <div class = "div-metodo-pagamento-pedido-concluido">                        
+                            <h2>Forma de Pagamento - Boleto Bancário</h2>
+                            <p>O seu Boleto vencerá em três dias!</p>
+
+                            <a href="/checkout/gerar-boleto/<%= infoPedido.id %>" target="_blank">
+                                <span class="material-icons-outlined">file_download</span>
+                                Gerar Boleto
+                            </a>
+                        </div>
+                    </div>
+
+                <% } else { %>
+                    <div class="div-pedido-concluido"> 
+                        <span class="material-icons-outlined icon-alerta">warning</span>                                               
+                        <p class="msg-pedido-nao-encontrado">                                                   
+                            Não encontramos seu pedido!
+                        </p>                        
+                    </div>
+                <% } %> 
+
+                <h2 class="saudacao-topsales">
+                    TopSales Agradece
+                    <span class="material-icons-outlined">emoji_emotions</span>
+                </h2>
+            </main>
+
+            
+            
+        </div>
+    </div>        
+
+    <%-include('./partials/footer')%>
+
+</body>
+</html>

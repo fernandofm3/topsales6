@@ -1,0 +1,269 @@
+/*** Carrinho Vazio **********************/
+.div-carrinho-vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-carrinho-vazio h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.div-carrinho-vazio span {
+    font-size: 10rem;
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+.div-carrinho-vazio p {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 80px;
+    color: #333;
+    text-transform: uppercase;
+    line-height: 1.975rem;
+}
+
+.div-carrinho-vazio p a{
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 10px;
+    border: 3px solid #d35400;
+    color: #d35400;
+    font-weight: bold;
+    border-radius: 7px;
+    transition: 0.6s;        
+}
+
+.div-carrinho-vazio p a:hover{
+    background-color: #d35400;
+    border: 3px solid #d35400;
+    color: #fff;                
+}
+
+/*********************************************/
+
+.main-checkout .div-checkout-info .div-info-carrinho {
+    margin-bottom: 40px;    
+}
+
+.main-checkout .div-checkout-info h2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 25px;    
+}
+
+.main-checkout .div-checkout-info h2 span {
+    color: #555;
+    margin-right: 10px;
+}
+
+.main-checkout .div-checkout-info  {
+    margin-bottom: 15px;
+}
+
+.main-checkout .div-checkout-info  .div-produto {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 7px; 
+    box-shadow: 2px 1px 8px 2px #ccc;       
+    color: #888;   
+    margin-bottom: 15px; 
+    width: 100%;
+    transition: 0.3s;
+}
+.main-checkout .div-checkout-info  .div-produto:hover {    
+    box-shadow: 3px 2px 10px 3px #aaa;   
+}
+
+.main-checkout .div-checkout-info  .div-produto div {
+    margin-bottom: 30px;
+}
+
+.main-checkout .div-checkout-info  .div-produto .div-cabecalho-card-produto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 30px;
+    margin-bottom: 0;
+}
+
+.main-checkout .div-checkout-info  .div-produto .div-cabecalho-card-produto h3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;    
+    color: #000;
+}
+
+.main-checkout .div-checkout-info  .div-produto .div-cabecalho-card-produto a span {
+    color: #c0392b;
+    font-size: 1.563rem;
+    transition: 0.6s;
+}
+
+.main-checkout .div-checkout-info  .div-produto .div-cabecalho-card-produto a span:hover {
+    background-color: #c0392b;
+    color: #fff;    
+    padding: 4px;
+    border-radius: 50%;
+}
+
+.main-checkout .div-checkout-info  .div-produto .div-cabecalho-card-produto h3 span {
+    margin-right: 10px;    
+}
+
+.main-checkout .div-checkout-info  .div-produto .div-info-produto {
+    padding: 30px;
+    margin-bottom: 0;
+}
+
+.main-checkout .div-checkout-info  .div-produto div p {
+    margin-bottom: 10px;
+    color: #333
+}
+
+.main-checkout .div-checkout-info  .div-produto div .p-titulos {
+    font-weight: bold;    
+}
+
+.main-checkout .div-checkout-info  .div-produto .div-info-produto .img-produto {
+    width: 100%;       
+}
+.main-checkout .div-checkout-info  .div-produto .div-info-produto .img-produto img {
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.main-checkout .div-checkout-info  .div-produto .div-info-produto .img-produto p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;       
+}
+
+.main-checkout .div-checkout-info  .div-produto .div-info-produto .div-qt-produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;     
+}
+.main-checkout .div-checkout-info  .div-produto .div-info-produto .div-qt-produto .div-qt-links {
+    display: flex;
+    flex-direction: row;
+
+    margin-bottom: 0;
+        
+}
+.main-checkout .div-checkout-info  .div-produto .div-info-produto .div-qt-produto .div-qt-links a {
+    text-decoration: none;
+    color: #000;
+    background-color: #eee;
+    padding: 3px;
+    border-radius: 50%;
+    transition: 0.3s;        
+}
+.main-checkout .div-checkout-info  .div-produto .div-info-produto .div-qt-produto .div-qt-links a:hover {
+    background-color: #ddd;      
+}
+.main-checkout .div-checkout-info  .div-produto .div-info-produto .div-qt-produto .div-qt-links a span {
+    font-size: 1rem;
+}
+.main-checkout .div-checkout-info  .div-produto .div-info-produto .div-qt-produto .div-qt-links p {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0 10px;
+    color: #555;
+}
+
+
+.main-checkout .div-checkout-info  .div-produto .div-info-produto .div-preco-produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+
+.main-checkout .div-checkout-info  .div-info-carrinho .btn-limpar-carrinho {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 6px;
+    background: #ff7979;
+    border-radius: 7px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.775rem;
+    transition: 0.3s;
+}
+
+.main-checkout .div-checkout-info  .div-info-carrinho .btn-limpar-carrinho:hover {
+    background-color: #c0392b;
+}
+
+.main-checkout .div-checkout-info  .div-info-carrinho .btn-limpar-carrinho span {   
+    margin-left: 10px;
+    font-size: 1.25rem;
+    
+}
+
+/******************* @media ****************************/
+
+@media (min-width: 481px) {
+    /*** Main ***/
+    .main-checkout .div-checkout-info  .div-produto .div-info-produto .img-produto {
+        display: flex;
+        flex-direction: row;       
+    }
+
+    .main-checkout .div-checkout-info  .div-produto .div-info-produto .img-produto img {
+        width: 100px;
+        margin-bottom: 0px;
+        margin-right: 15px;
+    }
+
+    /************/
+}
+
+@media (min-width: 1280px) {
+    /*** Main ***/
+    .main-checkout .div-checkout-info  .div-produto .div-info-produto {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 0px;
+    }
+    
+    .main-checkout .div-checkout-info  .div-produto .div-info-produto .img-produto {
+        width: 70%;
+        margin-right: 20px;
+        margin-bottom: 0px;       
+    }
+
+    .main-checkout .div-checkout-info  .div-produto .div-info-produto .div-qt-produto {
+        width: 10%; 
+        margin-right: 20px; 
+        text-align: center;
+        margin-bottom: 0px;     
+    }
+
+    .main-checkout .div-checkout-info  .div-produto .div-info-produto .div-preco-produto {
+        width: 20%;
+        text-align: center; 
+        margin-bottom: 0px;      
+    }
+
+    /************/
+}
+
+/*******************************************************/

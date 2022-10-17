@@ -1,0 +1,334 @@
+/*@Fernando*/
+
+.div-area-restrita .div-info-usuario-principal {
+    display: flex;
+    flex-direction: column;
+}
+
+.div-area-restrita .div-info-usuario-principal .div-info-acesso {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.div-area-restrita .div-info-usuario-principal .div-info-acesso .div-info-avatar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;   
+}
+
+.div-area-restrita .div-info-usuario-principal .div-info-acesso .div-info-avatar .foto-avatar{
+    width: 90px;
+    margin-right: 15px;
+    border-radius: 7px;       
+}
+
+.div-area-restrita .div-info-usuario-principal .div-info-acesso .div-info-acesso-texto p{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.div-area-restrita .div-info-usuario-principal .div-info-acesso .div-info-acesso-texto .saudacao{
+    font-size: 0.875rem;
+}
+
+.div-area-restrita .div-info-usuario-principal .div-info-acesso .div-info-acesso-texto .nome-usuario{
+    font-size: 1rem;
+}
+
+.div-area-restrita .div-info-usuario-principal .div-info-acesso .div-info-acesso-texto .email-usuario{
+    font-size: 0.75rem;
+    font-weight: normal;
+}
+
+.div-area-restrita .div-info-usuario-principal .div-info-acesso .btn-alterar-senha {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #00A000;
+    padding: 8px;
+    border-radius: 7px;
+    background-color: #00A000;
+    height: 35px;
+    transition: 0.3s;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.div-area-restrita .div-info-usuario-principal .div-info-acesso .btn-alterar-senha:hover {
+    background-color: #008900;
+}
+
+.div-area-restrita .div-info-usuario-principal .div-info-acesso .btn-alterar-senha span {
+    margin-right: 5px;
+    font-size: 1rem;
+}
+
+
+.div-area-restrita .div-ultimo-pedido .titulo-ultimo-pedido {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.btn-pag-perfil-ir-as-compras {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3482b6;
+    padding: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 7px;
+    box-shadow: 2px 1px 6px 3px #888;
+    transition: 0.3s;
+}
+.btn-pag-perfil-ir-as-compras:hover {
+    background-color: #388cc4;
+    box-shadow: 3px 2px 10px 4px #888;
+}
+
+.btn-pag-perfil-ir-as-compras span {
+        margin-right: 10px;
+        font-size: 2rem;
+}
+
+/*** Tabela Pedido ***/
+.div-area-restrita .div-ultimo-pedido .tabela-pedido {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;  
+    margin-bottom: 30px;
+    width: 100%;  
+}
+
+.div-area-restrita .div-ultimo-pedido .tabela-pedido thead tr, .div-area-restrita .div-ultimo-pedido .tabela-pedido tbody tr{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;    
+}
+
+.div-area-restrita .div-ultimo-pedido .tabela-pedido thead tr th, .div-area-restrita .div-ultimo-pedido .tabela-pedido tbody tr td {
+    font-size: 0.75rem;
+    padding: 0 15px 10px 0;    
+}
+/***********************/
+
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto {
+    display: flex;
+    flex-direction: column;
+}
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-end-entrega {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+}
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-end-entrega .titulo-end {
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-end-entrega .nome-destinatario {
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-style: italic;
+    color: #333;    
+}
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-end-entrega p {
+    font-size: 0.75rem;    
+    margin-bottom: 5px;
+}
+
+
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-transportadora {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+}
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-transportadora .titulo-trans {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 15px;
+}
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-transportadora .nome-trans {
+    font-size: 0.75rem; 
+    font-weight: bold; 
+    color: #333;  
+    margin-bottom: 5px;
+}
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-transportadora p {
+    font-size: 0.75rem;
+    font-weight: bold; 
+    color: #777;   
+    margin-bottom: 5px;
+}
+
+/*** Card ****************/
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .titulo-produto {
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+} 
+
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-produto .card {    
+    margin-bottom: 40px;
+    width: 100%;    
+}
+
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-produto .card .div-card-img-infos figure img {
+    width: 60px;
+    margin-bottom: 15px;
+}
+
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-produto .card .div-card-img-infos .card-infos .card-nome-produto {
+    font-size: 0.831rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-produto .card .div-card-img-infos .card-infos .card-preco-anterior {
+    font-size: 0.75rem;    
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-produto .card .div-card-img-infos .card-infos .card-preco-atual {
+    font-size: 1.25rem;    
+    color: #00A000;
+    margin-bottom: 4px;
+}
+
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-produto .card .div-card-img-infos .card-infos .card-preco-parcelado {
+    font-size: 0.813rem;    
+    color: #333;    
+    font-weight: 500;
+    margin-bottom: 7px;
+}
+
+.div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-produto .card .div-card-img-infos .card-infos .card-qt-produto {
+    font-size: 0.813rem;    
+    color: #777;   
+    margin-bottom: 20px;
+}
+
+/**********************/
+
+.div-ultimo-pedido .btn-ver-todos-pedidos {
+    width: 100%;    
+    text-align: center;
+}
+
+.div-ultimo-pedido .btn-ver-todos-pedidos a {  
+    display: block;
+    width: 100%;  
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #3498DB;
+    border: 1px solid #3498DB;
+    border-radius: 7px;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.div-ultimo-pedido .btn-ver-todos-pedidos a:hover {     
+    background-color: #3482b6;  
+}
+
+
+/******************* @media ****************************/
+
+@media (min-width: 481px) {
+    .div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-produto .card .div-card-img-infos {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-produto .card .div-card-img-infos figure {
+        margin-right: 20px;
+    }
+}
+
+
+@media (min-width: 640px) {
+    .div-area-restrita .div-ultimo-pedido .tabela-pedido {
+        display: flex;
+        flex-direction: column;      
+    }
+
+    .div-area-restrita .div-ultimo-pedido .tabela-pedido thead tr, .div-area-restrita .div-ultimo-pedido .tabela-pedido tbody tr{
+        display: flex;
+        flex-direction: row;           
+    }
+
+    .div-area-restrita .div-ultimo-pedido .tabela-pedido thead tr th, .div-area-restrita .div-ultimo-pedido .tabela-pedido tbody tr td {
+        display: flex;
+        justify-content: start;               
+        width: 25%;
+    }
+}
+
+
+@media (min-width: 768px) { 
+    .div-area-restrita .div-info-usuario-principal .div-info-acesso .div-info-acesso-texto .saudacao{
+        font-size: 1rem;
+    }
+    
+    .div-area-restrita .div-info-usuario-principal .div-info-acesso .div-info-acesso-texto .nome-usuario{
+        font-size: 1.563rem;
+    }
+    
+    .div-area-restrita .div-info-usuario-principal .div-info-acesso .div-info-acesso-texto .email-usuario{
+        font-size: 0.875rem;
+        font-weight: normal;
+    }
+
+    .div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-produtos {        
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;        
+    } 
+    
+    .div-area-restrita .div-ultimo-pedido .div-end-entrega-produto .div-produtos .div-produto {
+        margin-right: 60px;
+    }
+}
+
+
+@media (min-width: 900px) { 
+    
+}
+
+
+@media (min-width: 1024px) {
+    
+}
+
+
+@media (min-width: 1280px) { 
+    
+}
+
+
+
+
+
+
+
+
+

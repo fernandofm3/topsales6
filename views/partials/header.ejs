@@ -1,0 +1,158 @@
+<header id="navbar">
+    <div class="container">
+        <nav id="nav-header">
+            <div class="div-menu-1">
+                <div>                        
+                    <button id="btn-nav-mobile" class="btn-hamburger-mobile" aria-expanded="false" aria-controls="lista-nav-menu-mibile" aria-haspopup="true" aria-label="Abrir menu.">                            
+                        <span class="material-icons-outlined span-btn-open">menu</span>
+                        <span class="material-icons-outlined span-btn-close">close</span>
+                    </button>
+
+                    <ul class="lista-nav-menu-mobile" role="menu">
+                        <li>
+                            <a id="" href="/">
+                                <span class="material-icons-outlined">home</span>
+                                Home
+                            </a>
+                        </li>
+
+                        <% if(locals.usuarioEstaLogado == false) { %>
+                            <li>
+                                <a id="" href="/usuario/login">
+                                    <span class="material-icons-outlined">person</span>
+                                    Login
+                                </a>
+                            </li>
+                        <% } %> 
+                        
+                        <% if(locals.usuarioEstaLogado == true) { %>
+                            <li>
+                                <a id="" href="/usuario/perfil">
+                                    <span class="material-icons-outlined">person</span>
+                                    Minha conta
+                                </a>
+                            </li>
+                        <% } %>
+                            
+                        <li>
+                            <a href="/central-de-atendimento">
+                                <span class="material-icons-outlined">headset_mic</span>
+                                Central de Atendimento
+                            </a>
+                        </li>                        
+                        <li id="li-sub-menu-mobile" class="li-departamentos" aria-expanded="false" aria-controls="lista-nav-sub-menu-mibile" aria-haspopup="true" aria-label="Abrir menu.">
+                            <a id="sub-btn-mobile-departamentos" class="link-expandir-departamentos" href="#">
+                                <div>
+                                    <span class="material-icons-outlined">category</span>
+                                    Departamentos
+                                </div>
+                                <span class="material-icons-outlined span-departamentos-seta-baixo">expand_more</span>
+                                <span class="material-icons-outlined span-departamentos-seta-cima">expand_less</span>
+                            </a>
+
+                            <ul class="submenu-departamentos-mobile">
+                                <li onclick="location.href='/produtosPorCategoria/1';"><a>Notebook</a></li>
+                                <li onclick="location.href='/produtosPorCategoria/2';"><a>Smartphone</a></li>
+                                <li onclick="location.href='/produtosPorCategoria/3';"><a>Desktop</a></li>
+                                <li onclick="location.href='/produtosPorCategoria/4';"><a>Hardware</a></li>
+                                <li onclick="location.href='/produtosPorCategoria/5';"><a>Tablet</a></li>
+                                <li onclick="location.href='/produtosPorCategoria/6';"><a>Periféricos</a></li>
+                                <li onclick="location.href='/produtosPorCategoria/7';"><a>Eletrônicos</a></li>
+                                <li onclick="location.href='/produtosPorCategoria/8';"><a>All In One</a></li>
+                                <li onclick="location.href='/produtosPorCategoria/9';"><a>Cadeira Gamer</a></li>
+                                <li onclick="location.href='/produtosPorCategoria/10';"><a>Geek</a></li>
+                            </ul>
+                        </li>
+                        
+                        <% if(locals.usuarioEstaLogado == true) { %>
+
+                            <a class="btn-nav-logout-mobile" href="/usuario/logout">Sair</a>
+                            
+                        <% } %>     
+
+                    </ul>
+
+                    <a href="/" class="link-logo-empresa"><img src="/images/logo.svg" alt="Imagem Logo TopSales6"></a>
+                    <a href="/" class="link-logo-empresa-mobile"><img src="/images/logo2.svg" alt="Imagem Logo TopSales6"></a>
+                    
+                    <ul class="lista-menu">
+                        <% if(locals.usuarioEstaLogado == true) { %>
+
+                            <li class="li-link-minhaConta-sair">
+                                <a href="/usuario/login"><span class="material-icons imgBtnMenuNav">account_circle</span>Minha conta |</a>
+                                <a class="link-sair" href="/usuario/logout">sair</a>
+                            </li>
+        
+                        <% }%>
+
+                        <% if(locals.usuarioEstaLogado == false) { %>
+
+                            <li>
+                                <a href="/usuario/login"><span class="material-icons imgBtnMenuNav">account_circle</span>Login</a>
+                            </li>
+        
+                        <% }%>                        
+
+                        <li>
+                            <a href="/central-de-atendimento"><span class="material-icons-outlined imgBtnMenuNav">headset_mic</span>Central de Atendimento</a>
+                        </li>                                                   
+                    </ul>
+                </div>
+
+                <a href="/carrinho" class="link-carrinho">
+                    <span class="material-icons-outlined img-carrinho">shopping_cart</span>
+                    <span id="img-carrinho" class="material-icons-outlined img-carrinho-2">shopping_cart</span>
+                    
+                    <% if(locals.carrinho) {
+                        //Verificando a QT total de produtos no carrinho
+                        let qtTotalProdutos = 0;
+                        for(let i = 0; i < carrinho.length; i++) {
+                            qtTotalProdutos = qtTotalProdutos + carrinho[i].qt;
+                        }                      
+                    %>
+                        <span class="qt-item-carrinho"><%=qtTotalProdutos %></span>
+                    <%} else { %> 
+                        <span class="qt-item-carrinho">0</span>
+                    <%}%>
+                </a>
+            </div>
+
+
+            <div class="div-menu-2">
+                <div class="div-btn-departamentos">
+                    <button class="btn-departamentos">
+                        <span class="material-icons-outlined">menu</span> DEPARTAMENTOS
+                        <ul class="submenu-departamentos">
+                            <!--li class="submenu-departamentos-li-pc-gamer">
+                                <a href="#">Notebook</a>
+                                <span class="material-icons-outlined">navigate_next</span>
+                                <ul class="submenu-pc-gamer">
+                                    <li><a href="#">Fast White</a></li>
+                                    <li><a href="#">Red Force</a></li>
+                                </ul>
+                            </li-->                            
+                                
+                            <li onclick="location.href='/produtosPorCategoria/1';"><a>Notebook</a></li>
+                            <li onclick="location.href='/produtosPorCategoria/2';"><a>Smartphone</a></li>
+                            <li onclick="location.href='/produtosPorCategoria/3';"><a>Desktop</a></li>
+                            <li onclick="location.href='/produtosPorCategoria/4';"><a>Hardware</a></li>
+                            <li onclick="location.href='/produtosPorCategoria/5';"><a>Tablet</a></li>
+                            <li onclick="location.href='/produtosPorCategoria/6';"><a>Periféricos</a></li>
+                            <li onclick="location.href='/produtosPorCategoria/7';"><a>Eletrônicos</a></li>
+                            <li onclick="location.href='/produtosPorCategoria/8';"><a>All In One</a></li>
+                            <li onclick="location.href='/produtosPorCategoria/9';"><a>Cadeira Gamer</a></li>
+                            <li onclick="location.href='/produtosPorCategoria/10';"><a>Geek</a></li>
+                        </ul>
+                        <span class="material-icons-outlined btn-departamentos-seta-para-baixo">arrow_drop_down</span>
+                    </button>                        
+                </div>
+                <div class="div-barra-pesquisa">
+                    <form action="/produtosPorPesquisa" method="GET">
+                        <input class="barra-pesquisa" type="text" name="produtoPesquisado" placeholder="PESQUISE SEU PRODUTO">
+                        <span class="material-icons-outlined icon-lupa">search</span>
+                    </form>
+                </div>                    
+            </div>
+        </nav>
+    </div>
+</header>

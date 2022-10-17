@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TopSales6</title>
+    <link rel="shortcut icon" href="/images/fivicon.ico">
+    <!--Fonte / Icons-->    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>   
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">     
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">    
+    <!--CSS-->
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/base-area-restrita.css">
+    <link rel="stylesheet" href="/stylesheets/perfil-usuario.css">    
+</head>
+<body>    
+
+    <%- include('./partials/header') %>
+
+    <main>
+        <div class="container">
+            <div class="div-main-config-padrao">
+                <!--Comece aqui!-->
+                <div class="div-area-restrita">
+                    <%- include('./partials/menu-lateral-perfil') %>
+                    <div class="div-info-usuario-principal">
+
+                        <div class="div-info-acesso">
+                            <div class="div-info-avatar">
+
+                                <img src="/images/avatares/<%= usuarioLogado.foto %>" alt="Foto do avatar." class="foto-avatar">
+
+                                <div class="div-info-acesso-texto">
+                                    <p class="saudacao">Bem-Vindo,</p>
+                                    <p class="nome-usuario"> <%= usuarioLogado.nome + " " + usuarioLogado.sobrenome %>  </p>
+                                    <p class="email-usuario"><%= usuarioLogado.email %></p>
+                                </div>
+                            </div>
+                            
+                            <a class="btn-alterar-senha" href="/usuario/alterar-senha">
+                                <span class="material-icons">lock</span> ALTERAR SENHA
+                            </a>
+                        </div>
+
+                        <% if(locals.ultimoPedido && ultimoPedido != ""){ %> 
+
+                            <div class="div-ultimo-pedido">
+                                <p class="titulo-ultimo-pedido">ÚLTIMO PEDIDO REALIZADO</p>
+                                <table class="tabela-pedido">
+                                    <thead>
+                                        <tr>
+                                            <th>PEDIDO</th>
+                                            <th>DATA</th>
+                                            <th>MÉTODO</th>
+                                            <th>TOTAL</th>
+                                            <th>STATUS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td># <%= ultimoPedido[0].id %> </td>
+                                            <td> <%= datahoraPedido %>  </td>
+                                            <td> <%= ultimoPedido[0].metodo_pagamento %> </td>
+                                            <td> <%= ultimoPedido[0].preco_total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </td>
+                                            <td> 
+                                                <span style="background-color: #9a6700;color: #fff; font-size: 0.7rem;padding: 3px;border-radius: 4px;"> 
+                                                    <%= ultimoPedido[0].status %>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="div-end-entrega-produto">
+                                    <div class="div-end-entrega">
+                                        <p class="titulo-end">ENDEREÇO DA ENTREGA</p>
+
+                                        <% let novoEndereco = ultimoPedido[0].endereco.split(','); %> 
+
+                                        <p class="nome-destinatario"><%= novoEndereco[0] %></p>
+                                        <p><%= novoEndereco[1] + ', ' + novoEndereco[2] + ' - ' + novoEndereco[3] %></p>
+                                        <p><%= novoEndereco[4] + ' - ' + novoEndereco[5] + ' / ' + novoEndereco[6] + ' - CEP:' +  novoEndereco[7] %></p>                                        
+                                    </div> 
+
+                                    <div class="div-transportadora">
+                                        <p class="titulo-trans">TRANSPORTADORA</p>
+
+                                        <p class="nome-trans"><%= ultimoPedido[0].transportadora %></p>
+                                        <p>Seu pedido será entregue até 7 dias útis após o Pagamento.</p>                                       
+                                    </div> 
+
+                                    <p class="titulo-produto">PRODUTO COMPRADO</p>
+                                    <div class="div-produtos">
+
+                                        <% for(let i = 0; i < ultimoPedido[0].pedido_produto.length; i++) { %>  
+                                        
+                                        <div class="div-produto">                                        
+                                            <article class="card">
+                                                <div class="div-card-img-infos">                                            
+                                                    <figure>
+                                                        <img src="/images/produtos/<%=ultimoPedido[0].pedido_produto[i].img %>" alt="Imagem PC Gamer">
+                                                    </figure>
+                                                    <div class="card-infos">
+                                                        <p class="card-nome-produto"><%=ultimoPedido[0].pedido_produto[i].nome %></p>                                                    
+                                                        <p class="card-preco-atual"><strong><%=ultimoPedidoPrecoQtProduto[i].preco_produto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %></strong></p>
+                                                        <p class="card-preco-parcelado">1x de <%=ultimoPedidoPrecoQtProduto[i].preco_produto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> no Boleto</p>
+                                                        <p class="card-qt-produto"><%=ultimoPedidoPrecoQtProduto[i].qt_produto %> unidade(s)</p>
+                                                    </div>                                
+                                                </div>                                       
+                                            </article>
+                                        </div>
+
+                                        <% } %> 
+
+                                    </div>
+                                </div>
+                                <div class="btn-ver-todos-pedidos">
+                                    <a href="/usuario/meus-pedidos">VER TODOS OS PEDIDOS</a>
+                                </div>                            
+                            </div>
+
+                        <% } else { %>
+
+                            <div class="div-ultimo-pedido">
+                                <p class="titulo-ultimo-pedido">ESTAMOS AGUARDANDO SEU PRIMEIRO PEDIDO...</p>
+                                <a href="/" class="btn-pag-perfil-ir-as-compras">
+                                    <span id="img-carrinho" class="material-icons-outlined img-carrinho-2">shopping_cart</span>
+                                    IR AS COMPRAS
+                                </a>
+                            </div>
+
+                        <% } %> 
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <%- //include('./partials/footer') %>
+
+</body>
+</html>

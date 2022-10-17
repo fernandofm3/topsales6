@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TopSales6</title>
+    <link rel="shortcut icon" href="/images/fivicon.ico">
+    <!--Fonte / Icons-->    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>   
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">     
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">    
+    <!--CSS-->
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/produto.css">
+</head>
+<body>    
+    
+    <%- include('./partials/header') %>
+
+    
+
+    <main class="paginaproduto">
+        <div class="container">
+            <div class="div-main-config-padrao">
+                <div class="home-produto">
+                    <p> HOME </p> 
+                    <p> > </p>
+                    <P> Produto </P>
+                </div>
+                <section>
+                        
+                            <div class="img-nome-valor-comprar">
+                                <div class="small-img">
+                                    
+
+                                    <img src="/images/produtos/<%= produto.img %>" alt="">
+                                    <img src="/images/produtos/<%= produto.img %>" alt="">
+                                    <img src="/images/produtos/<%= produto.img %>" alt="">
+                                </div>
+                                <div class="main-img">
+                                    <img src="/images/produtos/<%= produto.img %>" alt="">
+                                </div>
+                                <div class="nome-valor-comprar">
+                                    <div class="nome-produto">
+                                        <p><%= produto.nome %><p>
+                                    </div>
+                                    <div class="valor-produto">
+                                        <p class="valor-anterior" > De: <span style="text-decoration: line-through"> <%= produto.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </span> por:</p>
+                                        <p class="valor-atual"> <%= ((produto.preco / 10 ) * 9.5).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> à vista</p>
+                                        <p class="valor-parcelado"> 12x de <%= (produto.preco / 12).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %></p>
+                                    </div>
+
+                                    <button class="button-produto">
+
+                                        <a class="linkCarrinho" href="/carrinho?idProd=<%=produto.id%>">        
+                                            <span class="material-icons-outlined">shopping_cart</span>
+                                            Comprar
+                                        </a>
+                                    </button> 
+
+                                
+                                </div>
+
+                            </div>
+                            <div class="descricao-produto">
+                                <p class="descricao-main">
+                                    Características do produto.
+                                </p>
+                                <p class="descricao-geral">
+                                    <%= produto.descricao %> 
+                                </p>
+
+                            </div>
+                    
+                    
+                
+                    
+                    
+                    
+                
+                </section>
+                <div class="veja-tambem">
+                    <p style="text-align: center;">Veja também!</p>
+                </div>
+                <div class="mais-produtos">
+                    <% for (produtosRelacionado of produtosRelacionados) {
+                        if (produtosRelacionado.id != produto.id) {
+
+                        
+                         %>
+                    <section class="produto" onclick="location.href='/produto/<%= produtosRelacionado.id %>' ">
+                        <div class="img-produto">
+                            <img src="/images/produtos/<%= produtosRelacionado.img %>" alt="">
+                        </div>
+                        <div class="nome-produto">
+                            <p class="nome-produto"><%= produtosRelacionado.nome %></p>
+                        </div>
+                        <div class="valor-anterior">
+                            <p class="valor-anterior">De: <span style="text-decoration: line-through"> <%= produtosRelacionado.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </span> </p>
+                        </div>
+                        <div class="valor-atual">
+                            <p class="valor-atual"> <%= ((produtosRelacionado.preco / 10 ) * 9.5).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> à vista </p>
+                        </div>
+                        <div class="valor-parcelado">
+                            <p class="valor-parcelado"> 12x de <%= (produtosRelacionado.preco / 12).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </p>
+                        </div>
+                        <button class="button-produto"> 
+                            <a class="linkCarrinho" href="/carrinho?idProd=<%=produtosRelacionado.id%>">
+                            <span class="material-icons-outlined" > shopping_cart</span>
+                            Comprar
+                            </a>
+                        </button>
+
+
+                    </section>
+                     <% } } %> 
+                    <!--<section class="produto">
+                        <div class="img-produto">
+                            <img src="/images/produtos/<%= produto.img %>" alt="">
+                        </div>
+                        <div class="nome-produto">
+                            <p class="nome-produto"><%= produto.nome %></p>
+                        </div>
+                        <div class="valor-anterior">
+                            <p class="valor-anterior">De: <span style="text-decoration: line-through"> <%= produto.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </span> </p>
+                        </div>
+                        <div class="valor-atual">
+                            <p class="valor-atual"> <%= ((produto.preco / 10 ) * 9).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> à vista </p>
+                        </div>
+                        <div class="valor-parcelado">
+                            <p class="valor-parcelado"> 12x de <%= (produto.preco / 12).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </p>
+                        </div>
+                        <button class="button-produto">
+                            <span class="material-icons-outlined" > shopping_cart</span>
+                            Comprar
+                        </button>
+
+
+                    </section>
+                    <section class="produto">
+                        <div class="img-produto">
+                            <img src="/images/produtos/<%= produto.img %>" alt="">
+                        </div>
+                        <div class="nome-produto">
+                            <p class="nome-produto"><%= produto.nome %></p>
+                        </div>
+                        <div class="valor-anterior">
+                            <p class="valor-anterior">De: <span style="text-decoration: line-through"> <%= produto.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </span> </p>
+                        </div>
+                        <div class="valor-atual">
+                            <p class="valor-atual"> <%= ((produto.preco / 10 ) * 9).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> à vista </p>
+                        </div>
+                        <div class="valor-parcelado">
+                            <p class="valor-parcelado"> 12x de <%= (produto.preco / 12).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </p>
+                        </div>
+                        <button class="button-produto">
+                            <span class="material-icons-outlined" > shopping_cart</span>
+                            Comprar
+                        </button>
+
+
+                    </section>
+                    <section class="produto">
+                        <div class="img-produto">
+                            <img src="/images/produtos/<%= produto.img %> " alt="">
+                        </div>
+                        <div class="nome-produto">
+                            <p class="nome-produto"><%= produto.nome %></p>
+                        </div>
+                        <div class="valor-anterior">
+                            <p class="valor-anterior">De: <span style="text-decoration: line-through"> <%= produto.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </span> </p>
+                        </div>
+                        <div class="valor-atual">
+                            <p class="valor-atual"> <%= ((produto.preco / 10 ) * 9).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> à vista </p>
+                        </div>
+                        <div class="valor-parcelado">
+                            <p class="valor-parcelado"> 12x de <%= (produto.preco / 12).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %> </p>
+                        </div>
+                        <button class="button-produto">
+                            <span class="material-icons-outlined" > shopping_cart</span>
+                            Comprar
+                        </button>
+
+
+                    </section> -->
+                </div>
+
+                
+                
+            </div>
+        </div>
+    </main>
+
+    <%- include('./partials/footer') %>   
+
+
+
+
+</body>
+</html>

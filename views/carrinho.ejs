@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TopSales6</title>
+    <link rel="shortcut icon" href="/images/fivicon.ico">
+    <!--Fonte / Icons-->    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>   
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">     
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">    
+    <!--CSS-->
+    <link rel="stylesheet" href="/stylesheets/base.css">       
+    <link rel="stylesheet" href="/stylesheets/barra-progresso-pedido.css">
+    <link rel="stylesheet" href="/stylesheets/checkout.css">    
+    <link rel="stylesheet" href="/stylesheets/carrinho.css">>
+</head>
+<body>   
+    <%- include('./partials/header') %>
+    
+    <div class="container">
+        <div class="div-main-config-padrao">
+            <!--Comece aqui!-->
+            <%- include('./partials/barra-progresso-pedido') %>
+
+            <% if(!locals.carrinho || carrinho == "") { %> 
+
+                <div class="div-carrinho-vazio">
+                    <h1>Carrinho Vazio</h1>
+                    <span class="material-icons-outlined">remove_shopping_cart</span>
+                    <p>Não perca tempo!!! <br>
+                        <b>Adicione itens ao seu carrinho</b> <br><br>
+                        <a href="/">PÁGINA HOME</a>
+                    </p>
+                </div>
+
+            <% } else { %>
+
+                <main class="main-checkout">
+                    <div class="div-checkout-info">
+                        <div class="div-info-carrinho">                        
+                            <h2>
+                                <span class="material-icons-outlined">shopping_cart</span>
+                                CARRINHO
+                            </h2> 
+                            
+                            <% if(locals.carrinho) { 
+                                for(produto of carrinho) { %>
+                                                    
+                                    <div id="produto<%=produto.id%>" class="div-produto">
+                                        <div class="div-cabecalho-card-produto">
+                                            <h3>
+                                                <span class="material-icons-outlined">shopping_bag</span>
+                                                <%= produto.nome %>
+                                            </h3>
+                                            <a href="/carrinho/deletarItem/<%= produto.id %>">
+                                                <span class="material-icons-outlined">delete</span>
+                                            </a>
+                                        </div>
+
+                                        <div class="div-info-produto">
+                                            <div class="img-produto">
+                                                <img src="/images/produtos/<%= produto.img%>" alt="Imagem do Produto">
+                                                <p>
+                                                    <%= produto.produto_categoria.nome + " " + produto.produto_marca.nome + " " + produto.nome %>                                                    
+                                                </p>
+                                            </div>
+
+                                            <div class="div-qt-produto">
+                                                <p class="p-titulos">QT</p>
+                                                <div class="div-qt-links">
+                                                    <a href="/carrinho/removerQtNoItem/<%= produto.id %>"><span class="material-icons-outlined">remove</span></a>
+                                                    <p><%=produto.qt%></p>
+                                                    <a href="/carrinho/adicionarQtNoItem/<%= produto.id %>"><span class="material-icons-outlined">add</span></a>
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                            <div class="div-preco-produto">
+                                                <p class="p-titulos">Preço</p>
+                                                <p>1x <%= (produto.qt * ((produto.preco / 10) * 9.5)).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});%></p>
+                                            </div> 
+                                        </div>
+                                    </div>
+
+                            <% }} %>
+
+                            <a class="btn-limpar-carrinho" href="/carrinho/limparCarrinho">                                
+                                LIMPAR CARRINHO
+                                <span class="material-icons-outlined">cleaning_services</span>
+                            </a>
+
+                        </div> 
+                        
+                        <div class="div-botoes-continuar-voltar">
+                            <a href="/" class="btn-voltar-progresso">
+                                <span class="material-icons-outlined">add_shopping_cart</span>
+                                CONTINUAR COMPRANDO
+                            </a>                            
+                        </div>  
+                    </div>
+        
+                    <%- include('./partials/resumo-valores-carrinho') %>
+                    
+                </main>
+
+            <% } %>
+        </div>
+    </div>
+
+    <%-include('./partials/footer')%>
+</body>
+</html>

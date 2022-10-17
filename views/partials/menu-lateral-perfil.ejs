@@ -1,0 +1,61 @@
+<nav class="menu-lateral-area-restrita"> 
+    
+    <% 
+        let paginaPerfil = '';
+        let paginaMeusDados = '';
+        let paginaEnderecos = '';
+        let paginaMeusPedidos = '';
+        let paginaAlterarSenha = '';
+
+        switch (paginaAtual) {
+            case "perfil":
+                paginaPerfil = 'pagina-ativa';
+                break;
+            case "meusDados":
+                paginaMeusDados = 'pagina-ativa';
+                break;
+            case  "enderecos":
+                paginaEnderecos =  'pagina-ativa';
+                break;
+            case  "meusPedidos":
+                paginaMeusPedidos =  'pagina-ativa';
+                break;
+            case  "alterarSenha":
+                paginaAlterarSenha =  'pagina-ativa';
+                break;
+        }       
+    %>
+
+    <ul class="ul-menu-lateral">
+        <li>
+            <a href="/usuario/perfil" class="<%= paginaPerfil %>">
+                <span class="material-icons">person</span>
+                Minha Conta
+            </a>
+        </li>
+        <li>
+            <a href="/usuario/meus-dados" class="<%= paginaMeusDados %>">
+                <span class="material-icons-outlined">folder_shared</span>
+                Meus Dados
+            </a>
+        </li>   
+        <li>
+            <a href="/usuario/meus-pedidos" class="<%= paginaMeusPedidos %>">
+                <span class="material-icons-outlined">assignment</span>
+                Meus Pedidos
+            </a>
+        </li>   
+        <li>
+            <a href="/usuario/enderecos" class="<%= paginaEnderecos %>">
+                <span class="material-icons-outlined">location_on</span>
+                Endereço
+            </a>
+        </li>                           
+        <li>
+            <a href="/usuario/alterar-senha" class="<%= paginaAlterarSenha %>">
+                <span class="material-icons-outlined">lock</span>
+                Alterar Senha
+            </a>
+        </li>                           
+    </ul>
+</nav>

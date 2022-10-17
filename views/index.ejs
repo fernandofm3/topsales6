@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TopSales6</title>
+    <link rel="shortcut icon" href="/images/fivicon.ico">
+    <!--Fonte / Icons-->    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>   
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">     
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">    
+    <!--CSS-->
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <link rel="stylesheet" href="/stylesheets/cards.css">
+</head>
+<body>  
+    
+    <%- include('./partials/header') %> 
+    
+    <!--Carrossel-->
+    <input type="radio" name="slides-carrossel" id="slide-carrossel-1" checked>
+    <input type="radio" name="slides-carrossel" id="slide-carrossel-2">
+    <section class="div-carrossel">
+        <div class="div-carrossel-slides">
+            <div class="slide slide1">
+                <img class="img-banner" src="/images/banner-pi-dh-1.png" alt="Banner de PC Gamer 30% Off">
+                <img class="img-banner-mobile" src="/images/banner-pi-dh-1-mobile.png" alt="Banner de PC Gamer 30% Off">                
+            </div>
+            <div class="slide">
+                <img class="img-banner" src="/images/banner-pi-dh-2.png" alt="Banner de PC Gamer 30% Off">
+                <img class="img-banner-mobile" src="/images/banner-pi-dh-2-mobile.png" alt="Banner de PC Gamer 30% Off">
+            </div> 
+        </div>
+        <div class="barra-navegacao-slides">
+            <label for="slide-carrossel-1" class="btn-barra-navegacao-slides btn-slide-1"></label>
+            <label for="slide-carrossel-2" class="btn-barra-navegacao-slides btn-slide-2"></label>
+        </div>
+    </section> 
+    <!--***********--> 
+
+    <main>
+        <div class="div-main-config-home">            
+            <section class="container">
+                <h2 class="home-section-titulos">
+                    <span class="material-icons-outlined">paid</span> PRODUTOS
+                </h2>  
+                <div class="div-cards-principal">      
+                    <div class="div-cards">
+                        <% if(produtos != "") {                            
+                            for (const produto of produtos) { %> 
+
+                                <article class="card" onclick="location.href='/produto/<%=produto.id%>';">
+                                    <div class="div-card-img-infos">
+                                        <figure>
+                                            <img src="/images/produtos/<%= produto.img %> " alt="Imagem PC Gamer">
+                                        </figure>
+                                        <div class="card-infos">
+                                            <p class="card-nome-produto"><%= produto.produto_categoria.nome + " " + produto.produto_marca.nome + " " + produto.nome %></p>
+                                            <p class="card-preco-anterior">De: <span><%= produto.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}); %></span> por:</p>
+                                            <p class="card-preco-atual"><strong><%= ((produto.preco / 10 ) * 9.5).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}); %> à vista</strong></p>
+                                            <p class="card-preco-parcelado">1 x de <%= ((produto.preco /10)* 9.5).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}); %> no Boleto</p>
+                                        </div>                              
+                                    </div>
+                                    <button>
+                                        <a class="btn_a" href="/carrinho?idProd=<%=produto.id%>">
+                                            <span class="material-icons-outlined">shopping_cart</span> Comprar
+                                        </a>
+                                    </button>
+                                </article>
+
+                        <% }} else { %>
+                            <div class="div-sem-produtos">
+                                <span class="material-icons-outlined">thumb_down</span>
+                                <h1>Produto não encontrado!</h1>
+                            </div>                            
+                        <% } %>
+            
+                    </div>
+                </div>                                  
+            </section>
+        </div>
+    </main>
+
+    <%- include('./partials/footer') %>
+
+</body>
+</html>
